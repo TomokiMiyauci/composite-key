@@ -10,7 +10,7 @@ export const makeOptions = (version: string): BuildOptions => ({
     name: "composite-key",
     version,
     description:
-      "Composite keys, TC39 proposal-richer-keys of compositeKey implementation.",
+      "Composite keys, TC39 proposal-richer-keys of compositeKey implementation",
     keywords: [
       "composite",
       "composite-key",
