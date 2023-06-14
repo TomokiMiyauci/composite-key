@@ -28,8 +28,12 @@ The entrypoint of each are as follows:
 
 ## compositeKey
 
-`compositeKey` requires at least one component must be object that can be placed
-in a `WeakMap`.
+Return reference consisting of a component. This allows using a `Map`, `Set` and
+`WeakMap` to weakly and/or privately associate data with the lifetime of a group
+of values.
+
+It requires at least one component must be object that can be placed in a
+`WeakMap`.
 
 ```ts
 import { compositeKey } from "https://deno.land/x/composite_key@$VERSION/mod.ts";
