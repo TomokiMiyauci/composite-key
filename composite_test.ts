@@ -49,4 +49,5 @@ const suite = (fn: Function, type: "object" | "symbol") => {
   assertFalse(fn(a, 0) === fn(a, 1));
   assertFalse(fn(a, 0) === fn(0, a));
   assertFalse(fn(a, 0) === fn(1, a));
+  assertFalse(fn(a, 0) === fn(a, 0, 1));
 };
