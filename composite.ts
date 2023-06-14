@@ -56,7 +56,7 @@ const compositor = /* @__PURE__ */ new Compositor();
  *
  * @example
  * ```ts
- * import { compositeKey } from "https://deno.land/x/composition_key@$VERSION/mod.ts";
+ * import { compositeKey } from "https://deno.land/x/composite_key@$VERSION/mod.ts";
  * import {
  *  assertEquals,
  *  assertNotEquals,
@@ -78,10 +78,11 @@ export function compositeKey(
 
 const symbols = /* @__PURE__ */ new EmplaceableWeakMap<object, symbol>();
 
-/** Return `Symbol` from {@link parts}. This allows strongly attaching data to an Object that is associated with a group of values.
+/** Return `Symbol` consisting of a component. This allows strongly attaching data to an Object that is associated with a group of values.
+ *
  * @example
  * ```ts
- * import { compositeSymbol } from "https://deno.land/x/composition_key@$VERSION/mod.ts";
+ * import { compositeSymbol } from "https://deno.land/x/composite_key@$VERSION/mod.ts";
  * import {
  *  assertEquals,
  *  assertNotEquals,

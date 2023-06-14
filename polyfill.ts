@@ -4,7 +4,7 @@
 /**
  * @example
  * ```ts
- * import "https://deno.land/x/composition_key@$VERSION/polyfill.ts";
+ * import "https://deno.land/x/composite_key@$VERSION/polyfill.ts";
  * import { assert } from "https://deno.land/std/testing/asserts.ts";
  *
  * assert(compositeKey);
