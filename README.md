@@ -13,6 +13,19 @@ Composite keys, TC39
 [proposal-richer-keys, compositeKey](https://github.com/tc39/proposal-richer-keys/tree/master/compositeKey)
 implementation.
 
+## Entrypoint
+
+This project provides ponyfill and polyfill.
+
+Polyfill has a side effect, so the endpoint is isolated.
+
+The entrypoint of each are as follows:
+
+| Type     | Entrypoint    |
+| -------- | ------------- |
+| Ponyfill | `mod.ts`      |
+| Polyfill | `polyfill.ts` |
+
 ## compositeKey
 
 `compositeKey` requires at least one component must be object that can be placed
