@@ -6,6 +6,7 @@
 import { EmplaceableMap, EmplaceableWeakMap, isString } from "./deps.ts";
 import { isObjective } from "./utils.ts";
 
+/** The reference. */
 export type Ref = Readonly<{ __proto__: null }>;
 
 export class RefContainer {
@@ -52,7 +53,7 @@ class Handler {
 
 const compositor = /* @__PURE__ */ new Compositor();
 
-/** Return {@link Ref} from {@link parts}.
+/** Return {@link Ref} consisting of a component. This allows using a `Map`, `Set` and `WeakMap` to weakly and/or privately associate data with the lifetime of a group of values.
  *
  * @example
  * ```ts
@@ -78,7 +79,7 @@ export function compositeKey(
 
 const symbols = /* @__PURE__ */ new EmplaceableWeakMap<object, symbol>();
 
-/** Return `Symbol` consisting of a component. This allows strongly attaching data to an Object that is associated with a group of values.
+/** Return `Symbol` consisting of a component. This allows strongly attaching data to an object that is associated with a group of values.
  *
  * @example
  * ```ts
