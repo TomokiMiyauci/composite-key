@@ -36,11 +36,8 @@ It requires at least one component must be object that can be placed in a
 `WeakMap`.
 
 ```ts
-import { compositeKey } from "https://deno.land/x/composite_key@$VERSION/mod.ts";
-import {
-  assertEquals,
-  assertNotEquals,
-} from "https://deno.land/std/testing/asserts.ts";
+import { compositeKey } from "@miyauci/composite-key";
+import { assertEquals, assertNotEquals } from "@std/assert";
 
 declare const fn: (a: number, b: number) => number;
 
@@ -57,11 +54,8 @@ Return `Symbol` consisting of a component. This allows strongly attaching data
 to an object that is associated with a group of values.
 
 ```ts
-import { compositeSymbol } from "https://deno.land/x/composite_key@$VERSION/mod.ts";
-import {
-  assertEquals,
-  assertNotEquals,
-} from "https://deno.land/std/testing/asserts.ts";
+import { compositeSymbol } from "@miyauci/composite-key";
+import { assertEquals, assertNotEquals } from "@std/assert";
 
 declare const object: object;
 
@@ -77,8 +71,8 @@ assertNotEquals(compositeSymbol(0, {}), compositeSymbol(0, {}));
 Polyfill affects the global object. You must be very careful when using it.
 
 ```ts
-import "https://deno.land/x/composite_key@$VERSION/polyfill.ts";
-import { assert } from "https://deno.land/std/testing/asserts.ts";
+import "@miyauci/composite-key/polyfill";
+import { assert } from "@std/assert";
 
 assert(compositeKey);
 assert(compositeSymbol);

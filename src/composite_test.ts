@@ -5,13 +5,8 @@ import {
   compositeSymbol,
   RefContainer,
 } from "../src/composite.ts";
-import {
-  assert,
-  assertEquals,
-  assertFalse,
-  describe,
-  it,
-} from "./_dev_deps.ts";
+import { describe, it } from "@std/testing/bdd";
+import { assert, assertEquals, assertFalse } from "@std/assert";
 
 describe("RefContainer", () => {
   it("should return unique ref", () => {

@@ -4,15 +4,15 @@
 /**
  * @example
  * ```ts
- * import "https://deno.land/x/composite_key@$VERSION/polyfill.ts";
- * import { assert } from "https://deno.land/std/testing/asserts.ts";
+ * import "@miyauci/composite-key/polyfill";
+ * import { assert } from "@std/assert";
  *
  * assert(compositeKey);
  * assert(compositeSymbol);
  * ```
+ *
+ * @module
  */
-
-// deno-lint-ignore-file no-var ban-types
 
 import { compositeKey, compositeSymbol, type Ref } from "./composite.ts";
 
