@@ -1,6 +1,8 @@
 // Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
 // This module is browser compatible.
 
+/// <reference path="./polyfill.d.ts" />
+
 /**
  * @example
  * ```ts
@@ -14,14 +16,7 @@
  * @module
  */
 
-import { compositeKey, compositeSymbol, type Ref } from "./composite.ts";
-
-declare global {
-  var compositeKey: (
-    ...parts: [object, ...unknown[]] | [...unknown[], object]
-  ) => Ref;
-  var compositeSymbol: (...parts: readonly unknown[]) => symbol;
-}
+import { compositeKey, compositeSymbol } from "./composite.ts";
 
 globalThis.compositeKey = compositeKey;
 globalThis.compositeSymbol = compositeSymbol;
