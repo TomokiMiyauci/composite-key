@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/TomokiMiyauci/composite-key/compare/1.0.0...1.1.0) (2024-07-05)
+
+
+### Features
+
+* use only jsr as external module ([647a184](https://github.com/TomokiMiyauci/composite-key/commit/647a1841d7d864181dfc8445cdb26338d8e4dc03))
+
 # [1.1.0-beta.1](https://github.com/TomokiMiyauci/composite-key/compare/1.0.0...1.1.0-beta.1) (2024-07-05)
 
 
