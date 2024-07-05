@@ -1,13 +1,12 @@
 // Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
 
-import { compositeKey, compositeSymbol, RefContainer } from "./composite.ts";
 import {
-  assert,
-  assertEquals,
-  assertFalse,
-  describe,
-  it,
-} from "./_dev_deps.ts";
+  compositeKey,
+  compositeSymbol,
+  RefContainer,
+} from "../src/composite.ts";
+import { describe, it } from "@std/testing/bdd";
+import { assert, assertEquals, assertFalse } from "@std/assert";
 
 describe("RefContainer", () => {
   it("should return unique ref", () => {

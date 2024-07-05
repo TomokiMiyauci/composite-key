@@ -1,10 +1,11 @@
 // Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
 // This module is browser compatible.
 
-// deno-lint-ignore-file ban-types
-
-import { EmplaceableMap, EmplaceableWeakMap, isString } from "./deps.ts";
-import { isObjective } from "./utils.ts";
+import {
+  EmplaceableMap,
+  EmplaceableWeakMap,
+  type Insertable,
+} from "@miyauci/upsert";
 
 /** The reference. */
 export type Ref = Readonly<{ __proto__: null }>;
@@ -34,9 +35,9 @@ class Compositor extends RefContainer {
   }
 
   emplace(value: unknown, position: number): Compositor {
-    const positions = isObjective(value)
-      ? this.weakMap.emplace(value, Handler)
-      : this.map.emplace(value, Handler);
+    const positions = value instanceof Object
+      ? this.weakMap.emplace(value, handler)
+      : this.map.emplace(value, handler);
     const compositor = positions.emplace(position, {
       insert: () => new Compositor(),
     });
@@ -45,11 +46,9 @@ class Compositor extends RefContainer {
   }
 }
 
-class Handler {
-  static insert(): EmplaceableMap<number, Compositor> {
-    return new EmplaceableMap<number, Compositor>();
-  }
-}
+const handler = {
+  insert: () => new EmplaceableMap(),
+} satisfies Insertable<unknown, EmplaceableMap<number, Compositor>, unknown>;
 
 const compositor = /* @__PURE__ */ new Compositor();
 
@@ -57,11 +56,11 @@ const compositor = /* @__PURE__ */ new Compositor();
  *
  * @example
  * ```ts
- * import { compositeKey } from "https://deno.land/x/composite_key@$VERSION/mod.ts";
+ * import { compositeKey } from "@miyauci/composite-key";
  * import {
  *  assertEquals,
  *  assertNotEquals,
- * } from "https://deno.land/std/testing/asserts.ts";
+ * } from "@std/assert";
  *
  * declare const fn: (a: number, b: number) => number;
  *
@@ -83,11 +82,11 @@ const symbols = /* @__PURE__ */ new EmplaceableWeakMap<object, symbol>();
  *
  * @example
  * ```ts
- * import { compositeSymbol } from "https://deno.land/x/composite_key@$VERSION/mod.ts";
+ * import { compositeSymbol } from "@miyauci/composite-key";
  * import {
  *  assertEquals,
  *  assertNotEquals,
- * } from "https://deno.land/std/testing/asserts.ts";
+ * } from "@std/assert";
  *
  * declare const object: object;
  *
@@ -99,7 +98,9 @@ const symbols = /* @__PURE__ */ new EmplaceableWeakMap<object, symbol>();
  * ```
  */
 export function compositeSymbol(...parts: readonly unknown[]): symbol {
-  if (parts.length === 1 && isString(parts[0])) return Symbol.for(parts[0]);
+  if (parts.length === 1 && typeof parts[0] === "string") {
+    return Symbol.for(parts[0]);
+  }
 
   const key = compositeKey(symbols, ...parts);
 

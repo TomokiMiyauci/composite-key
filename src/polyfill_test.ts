@@ -1,7 +1,8 @@
 // Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
 
-import "./polyfill.ts";
-import { assert, describe, it } from "./_dev_deps.ts";
+import "../src/polyfill.ts";
+import { describe, it } from "@std/testing/bdd";
+import { assert } from "@std/assert";
 import {
   compositeKey as _compositeKey,
   compositeSymbol as _compositeSymbol,
