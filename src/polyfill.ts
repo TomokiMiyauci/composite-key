@@ -3,7 +3,8 @@
 
 /// <reference path="./polyfill.d.ts" />
 
-/**
+/** Polyfill affects the global object.
+ *
  * @example
  * ```ts
  * import "@miyauci/composite-key/polyfill";
