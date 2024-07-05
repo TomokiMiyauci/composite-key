@@ -1,32 +1,42 @@
 # composite-key
 
-[![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno)](https://deno.land/x/composite_key)
-[![deno doc](https://doc.deno.land/badge.svg)](https://deno.land/x/composite_key/mod.ts)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/TomokiMiyauci/composite-key)](https://github.com/TomokiMiyauci/composite-key/releases)
-[![codecov](https://codecov.io/github/TomokiMiyauci/composite-key/branch/main/graph/badge.svg)](https://codecov.io/gh/TomokiMiyauci/composite-key)
+[![JSR](https://jsr.io/badges/@miyauci/composite-key)](https://jsr.io/@miyauci/composite-key)
+[![codecov](https://codecov.io/gh/TomokiMiyauci/composite-key/graph/badge.svg?token=gLgydtlHEF)](https://codecov.io/gh/TomokiMiyauci/composite-key)
 [![GitHub](https://img.shields.io/github/license/TomokiMiyauci/composite-key)](https://github.com/TomokiMiyauci/composite-key/blob/main/LICENSE)
-
-[![test](https://github.com/TomokiMiyauci/composite-key/actions/workflows/test.yaml/badge.svg)](https://github.com/TomokiMiyauci/composite-key/actions/workflows/test.yaml)
-[![NPM](https://nodei.co/npm/composite-key.png?mini=true)](https://nodei.co/npm/composite-key/)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
 Composite keys, TC39
 [proposal-richer-keys, compositeKey](https://github.com/tc39/proposal-richer-keys/tree/master/compositeKey)
 implementation.
 
-## Entrypoint
+## Table of Contents <!-- omit in toc -->
 
-This project provides ponyfill and polyfill.
+- [Install](#install)
+- [Usage](#usage)
+  - [compositeKey](#compositekey)
+  - [compositeSymbol](#compositesymbol)
+  - [Polyfill](#polyfill)
+- [API](#api)
+- [License](#license)
 
-Polyfill has a side effect, so the endpoint is isolated.
+## Install
 
-The entrypoint of each are as follows:
+deno:
 
-| Type     | Entrypoint    |
-| -------- | ------------- |
-| Ponyfill | `mod.ts`      |
-| Polyfill | `polyfill.ts` |
+```bash
+deno add @miyauci/composite-key
+```
 
-## compositeKey
+node:
+
+```bash
+npx jsr add @miyauci/composite-key
+```
+
+## Usage
+
+### compositeKey
 
 Return reference consisting of a component. This allows using a `Map`, `Set` and
 `WeakMap` to weakly and/or privately associate data with the lifetime of a group
@@ -48,7 +58,7 @@ assertNotEquals(compositeKey(fn, 1, 0), compositeKey(fn, 0, 1));
 compositeKey(0, 1);
 ```
 
-## compositeSymbol
+### compositeSymbol
 
 Return `Symbol` consisting of a component. This allows strongly attaching data
 to an object that is associated with a group of values.
@@ -66,7 +76,7 @@ assertNotEquals(compositeSymbol(0), compositeSymbol(1));
 assertNotEquals(compositeSymbol(0, {}), compositeSymbol(0, {}));
 ```
 
-## Polyfill
+### Polyfill
 
 Polyfill affects the global object. You must be very careful when using it.
 
@@ -80,7 +90,7 @@ assert(compositeSymbol);
 
 ## API
 
-See [deno doc](https://deno.land/x/composite_key/mod.ts) for all APIs.
+See [jsr doc](https://jsr.io/@miyauci/composite-key) for all APIs.
 
 ## License
 
