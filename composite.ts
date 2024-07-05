@@ -1,8 +1,6 @@
 // Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
 // This module is browser compatible.
 
-// deno-lint-ignore-file ban-types
-
 import { EmplaceableMap, EmplaceableWeakMap, isString } from "./deps.ts";
 import { isObjective } from "./utils.ts";
 
