@@ -1,6 +1,6 @@
 // Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
 
-import "./polyfill.ts";
+import "../src/polyfill.ts";
 import { assert, describe, it } from "./_dev_deps.ts";
 import {
   compositeKey as _compositeKey,
