@@ -1,7 +1,11 @@
 // Copyright 2023-latest Tomoki Miyauchi. All rights reserved. MIT license.
 // This module is browser compatible.
 
-import { EmplaceableMap, EmplaceableWeakMap } from "@miyauci/upsert";
+import {
+  EmplaceableMap,
+  EmplaceableWeakMap,
+  type Insertable,
+} from "@miyauci/upsert";
 
 /** The reference. */
 export type Ref = Readonly<{ __proto__: null }>;
@@ -32,8 +36,8 @@ class Compositor extends RefContainer {
 
   emplace(value: unknown, position: number): Compositor {
     const positions = value instanceof Object
-      ? this.weakMap.emplace(value, Handler)
-      : this.map.emplace(value, Handler);
+      ? this.weakMap.emplace(value, handler)
+      : this.map.emplace(value, handler);
     const compositor = positions.emplace(position, {
       insert: () => new Compositor(),
     });
@@ -42,11 +46,9 @@ class Compositor extends RefContainer {
   }
 }
 
-class Handler {
-  static insert(): EmplaceableMap<number, Compositor> {
-    return new EmplaceableMap<number, Compositor>();
-  }
-}
+const handler = {
+  insert: () => new EmplaceableMap(),
+} satisfies Insertable<unknown, EmplaceableMap<number, Compositor>, unknown>;
 
 const compositor = /* @__PURE__ */ new Compositor();
 
